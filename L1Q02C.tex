@@ -2,9 +2,7 @@
 
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{tabularx}
-\usepackage{tikz}
-\usetikzlibrary{graphs,graphs.standard}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -16,11 +14,11 @@
 \author{CS/MATH 113 Discrete Mathematics L1}
 \date{Habib University | Spring 2023}
 
-% \usepackage{draftwatermark}
-% \SetWatermarkText{Sample Solution}
-% \SetWatermarkScale{3}
-
-% \printanswers
+% solution
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\printanswers
 
 \begin{document}
 \maketitle
@@ -73,12 +71,23 @@ Use these to prove the following \textit{distributivity law}.
 \]
   
 \begin{solution}
-  We show below that if $n$ is odd, then $n^2$ is also odd.
+  We show that the columns for the {\color{olive}LHS} and {\color{blue}RHS} in a truth table are identical.
+  \small
     \begin{proof}
-      Let $n=2k+1$ where $k$ is an integer.\\
-      Then $n^2=4k^2+4k+1 = 2 (2k^2+2k)+1$.\\
-      $2k^2+2k$ is an integer.\\
-      $\therefore n^2$ is odd.
+  \[
+  \begin{array}{c|c|c||c|>{\columncolor{olive!20}}c|c|c|>{\columncolor{blue!20}}c}
+    p & q & r & q \lor r & p \land (q\lor r) & p \land q & p \land r & (p \land q) \lor (p \land r) \\
+    \hline
+    T & T & T & T & T & T & T & T \\
+    T & T & F & T & T & T & F & T \\
+    T & F & T & T & T & F & T & T \\
+    T & F & F & F & F & F & F & F \\
+    F & T & T & T & F & F & F & F \\
+    F & T & F & T & F & F & F & F \\
+    F & F & T & T & F & F & F & F \\
+    F & F & F & F & F & F & F & F \\
+  \end{array}
+\]
     \end{proof}
   \end{solution}
 \end{questions}

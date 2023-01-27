@@ -1,0 +1,123 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tabularx}
+
+\title{Quiz 3B: Rules of Inference}
+\author{CS/MATH 113 Discrete Mathematics L1}
+\date{Habib University | Spring 2023}
+
+% solution
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\printanswers
+
+\newcolumntype{L}{>$l<$}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  Total Marks: \numpoints & Date: \today\\
+  Duration: 10 minutes & Time: 1715--1725h
+\end{tabularx}
+\hrule
+\bigskip
+
+\noindent \textbf{Student ID}: \hrulefill \\[5pt]
+\noindent \textbf{Student Name}: \hrulefill \\[5pt]
+
+% \section{Problems}
+
+\begin{questions}
+  \question  [10] Use the rules of inference given below to determine whether the following argument is valid.
+  \begin{quotation}
+If the butler were present, he would have been seen; and if he had been seen, he would have been questioned. If he had been questioned, he would have replied; and if he had replied, he would have been heard. But the butler was not heard. If the butler was not seen and not heard, then he must have been on duty; and if he was on duty, he must have been present. Therefore the butler was questioned.
+  \end{quotation}
+  \[
+    \begin{array}{cc||cc||cc}
+      \begin{array}{l}
+        p\\p\implies q\\\hline\therefore q
+      \end{array}
+      &
+        \text{Modus ponens}& 
+      \begin{array}{l}
+        \neg q\\p\implies q\\\hline\therefore \neg p
+      \end{array}
+      &
+        \text{Modus tollens}& 
+      \begin{array}{l}
+        p\implies q\\q\implies r\\\hline\therefore q\implies r
+      \end{array}
+      &
+        \text{Hypothetical syllogism}\\
+      \hline\hline
+      \begin{array}{l}
+        p\lor q\\\neg p\\\hline\therefore q
+      \end{array}
+      &
+        \text{Disjunctive syllogism}&
+      \begin{array}{l}
+        p\\\hline\therefore p\lor q
+      \end{array}
+      &
+        \text{Addition}& 
+      \begin{array}{l}
+        p\land q\\\hline\therefore p
+      \end{array}
+      &
+        \text{Simplification}\\
+      \hline\hline
+      \begin{array}{l}
+        p\\ q\\\hline\therefore p\land q
+      \end{array}
+      &
+        \text{Conjunction}& 
+      \begin{array}{l}
+        p\lor q\\ \neg p\lor r\\\hline\therefore q\lor r
+      \end{array}
+      &
+        \text{Resolution} 
+    \end{array}
+  \]
+  
+  \begin{solution}
+    We argue that the given argument is invalid by showing that the conclusion does not follow from the premises.
+    \begin{proof}
+    Let us define the following atomic propositions:    
+    \begin{tabular}{Ll}
+      p & The butler was present\\
+      s & The butler was seen\\
+      q & The butler was questioned\\
+      r & The butler replied\\
+      h & The butler was heard\\
+      d & The butler was on duty
+    \end{tabular}
+
+    The given argument can then be denoted as:
+    \begin{tabular}{L@{\qquad}L}
+      p \implies s & P1\\
+      s \implies q & P2\\
+      q \implies r & P3\\
+      r \implies h & P4\\
+      \neg h & P5\\ 
+      (\neg s \land \neg h) \implies d & P6\\
+      d \implies p & P7\\
+      \hline
+      \therefore q & C
+    \end{tabular}
+    
+    And we can argue as follows:
+    \begin{tabular}{L@{\quad}lL@{\qquad}L}
+      \neg r & Modus tollens & P4, P5 & P8\\
+      \neg q & Modus tollens & P3, P8 & P9\\
+    \end{tabular}
+
+    $P9$ is the negation of $C$, i.e., the premises lead to $\neg C$. Therefore the argument is not valid. 
+  \end{proof}
+  \end{solution}
+\end{questions}
+\end{document}

@@ -1,0 +1,133 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tabularx}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+
+\title{Quiz 3A: Rules of Inference}
+\author{CS/MATH 113 Discrete Mathematics L1}
+\date{Habib University | Spring 2023}
+
+% solution
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\printanswers
+
+\newcolumntype{L}{>$l<$}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  Total Marks: \numpoints & Date: \today\\
+  Duration: 10 minutes & Time: 1715--1725h
+\end{tabularx}
+\hrule
+\bigskip
+
+\noindent \textbf{Student ID}: \hrulefill \\[5pt]
+\noindent \textbf{Student Name}: \hrulefill \\[5pt]
+
+% \section{Problems}
+
+\begin{questions}
+  \question  [10] Use the rules of inference given below to determine whether the following argument is valid.
+  \begin{quotation}
+If Superman were able and willing to prevent evil, he would do so. If Superman were unable to prevent evil, he would be impotent; if he were unwilling to prevent evil, he would be malevolent. Superman does not prevent evil. If Superman exists, he is neither impotent nor malevolent. Therefore, Superman does not exist.    
+  \end{quotation}
+  \[
+    \begin{array}{cc||cc||cc}
+      \begin{array}{l}
+        p\\p\implies q\\\hline\therefore q
+      \end{array}
+      &
+        \text{Modus ponens}& 
+      \begin{array}{l}
+        \neg q\\p\implies q\\\hline\therefore \neg p
+      \end{array}
+      &
+        \text{Modus tollens}& 
+      \begin{array}{l}
+        p\implies q\\q\implies r\\\hline\therefore q\implies r
+      \end{array}
+      &
+        \text{Hypothetical syllogism}\\
+      \hline\hline
+      \begin{array}{l}
+        p\lor q\\\neg p\\\hline\therefore q
+      \end{array}
+      &
+        \text{Disjunctive syllogism}&
+      \begin{array}{l}
+        p\\\hline\therefore p\lor q
+      \end{array}
+      &
+        \text{Addition}& 
+      \begin{array}{l}
+        p\land q\\\hline\therefore p
+      \end{array}
+      &
+        \text{Simplification}\\
+      \hline\hline
+      \begin{array}{l}
+        p\\ q\\\hline\therefore p\land q
+      \end{array}
+      &
+        \text{Conjunction}& 
+      \begin{array}{l}
+        p\lor q\\ \neg p\lor r\\\hline\therefore q\lor r
+      \end{array}
+      &
+        \text{Resolution} 
+    \end{array}
+  \]
+  
+  \begin{solution}
+    We argue that the given argument is valid by deriving the conclusion from the premises.
+    \begin{proof}
+    Let us define the following atomic propositions:    
+    \begin{tabular}{Ll}
+      a & Superman is able to prevent evil\\
+      w & Superman is willing to prevent evil\\
+      p & Superman prevents evil\\
+      i & Superman is impotent\\
+      m & Superman is malevolent\\
+      e & Superman exists\\
+    \end{tabular}
+
+    The given argument can then be denoted as:
+    \begin{tabular}{L@{\qquad}L}
+        (a\lor w) \implies p & P1\\
+        \neg a \implies i & P2\\
+        \neg w \implies m & P3\\
+        \neg p & P4\\
+        e \implies (\neg i \land \neg m) & P5\\
+        \hline
+        \therefore \neg e & C
+    \end{tabular}
+    
+    And we can argue as follows:
+    \begin{tabular}{L@{\quad}lL@{\qquad}L}
+      \neg(a\lor w) & Modus tollens & P1, P4 & P6\\
+      \neg a \land \neg w & DeMorgan's law & P6 & P7\\
+      \neg a & Simplification & P7 & P8\\
+      i & Modus ponens & P2, P8 & P9\\
+      \neg (\neg i \land \neg m) \implies \neg e & Contrapositive & P5 & P10\\
+      (i \lor m) \implies \neg e & DoMorgan's law & P10 & P11\\
+      i \lor m & Addition & P9 & P12\\
+      \neg e & Modus ponens & P11, P12 & P13
+    \end{tabular}
+
+    $P13$ is the same as $C$. Therefore the argument is valid. 
+  \end{proof}
+\end{solution}
+\end{questions}
+\end{document}

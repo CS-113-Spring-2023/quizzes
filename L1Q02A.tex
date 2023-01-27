@@ -2,9 +2,7 @@
 
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{tabularx}
-\usepackage{tikz}
-\usetikzlibrary{graphs,graphs.standard}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -16,15 +14,16 @@
 \author{CS/MATH 113 Discrete Mathematics L1}
 \date{Habib University | Spring 2023}
 
-% \usepackage{draftwatermark}
-% \SetWatermarkText{Sample Solution}
-% \SetWatermarkScale{3}
-
-% \printanswers
+% solution
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\printanswers
 
 \begin{document}
 \maketitle
 \thispagestyle{empty}
+
 \noindent
 \begin{tabularx}{\linewidth}{Xr}
   Total Marks: \numpoints & Date: \today\\
@@ -85,12 +84,19 @@ Use these to prove \textit{De Morgan's laws}, i.e.
 \end{parts}
   
 \begin{solution}
-  We show below that if $n$ is odd, then $n^2$ is also odd.
-    \begin{proof}
-      Let $n=2k+1$ where $k$ is an integer.\\
-      Then $n^2=4k^2+4k+1 = 2 (2k^2+2k)+1$.\\
-      $2k^2+2k$ is an integer.\\
-      $\therefore n^2$ is odd.
+  We show that the columns for the LHS and RHS of {\color{olive}part (a)} are identical, and also of {\color{blue}part (b)}.
+  \begin{proof}
+    \small
+  \[
+  \begin{array}{c|c||c|c|c|c|>{\columncolor{olive!20}}c|>{\columncolor{blue!20}}c|>{\columncolor{olive!20}}c|>{\columncolor{blue!20}}c}
+    p & q & \neg p & \neg q & p \land q & p \lor q & \neg(p \land q) & \neg(p \lor q) & \neg p \lor \neg q & \neg p \land \neg q\\
+    \hline
+    T & T & F & F & T & T & F & F & F & F \\
+    T & F & F & T & F & T & T & F & T & F \\
+    F & T & T & F & F & T & T & F & T & F \\
+    F & F & T & T & F & F & T & T & T & T \\
+  \end{array}
+\]
     \end{proof}
   \end{solution}
 \end{questions}
