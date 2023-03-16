@@ -1,0 +1,144 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tabularx}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+
+\title{Quiz 4B: Predicate logic}
+\author{CS/MATH 113 Discrete Mathematics L1}
+\date{Habib University | Spring 2023}
+
+% solution
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\printanswers
+
+\newcolumntype{L}{>$l<$}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  Total Marks: \numpoints & Date: \today\\
+  Duration: 10 minutes & Time: 1715--1725h
+\end{tabularx}
+\hrule
+\bigskip
+
+\noindent \textbf{Student ID}: \hrulefill \\[5pt]
+\noindent \textbf{Student Name}: \hrulefill \\[5pt]
+
+% \section{Problems}
+
+\begin{questions}
+  \question [10] The predicates $A(x), B(x)$, and $C(x)$ are defined on the domain $P=\{p_1,p_2,p_3,p_4\}$. The predicates $D(x), E(x)$, and $F(x)$ are defined on the domain $Q=\{q_1,q_2,q_3\}$. And the predicates $G(x,y), H(x,y)$ and  $I(x,y)$ are defined such that $x$ belongs to $P$ and $y$ to $Q$. Their truth tables are given below.
+  \[
+    \begin{array}{{c|ccc}}
+      x & A(x) & B(x) & C(x) \\
+      \hline
+      p_1 & T & F & T \\
+      p_2 & T & F & F \\
+      p_3 & T & F & T \\
+      p_4 & T & F & T \\
+    \end{array}\
+    \qquad
+    \begin{array}{{c|ccc}}
+      x & D(x) & E(x) & F(x) \\
+      \hline
+      q_1 & T & F & F \\
+      q_2 & T & F & T \\
+      q_3 & T & F & T \\
+    \end{array}
+    \qquad
+    \begin{array}{{cc|ccc}}
+      x & y & G(x,y) & H(x,y) & I(x,y)\\
+      \hline
+      p_1 & q_1 & T & F & F \\
+      p_1 & q_2 & T & F & F \\
+      p_1 & q_3 & T & F & F \\
+      p_2 & q_1 & T & F & T \\
+      p_2 & q_2 & T & F & T \\
+      p_2 & q_3 & T & F & T \\
+      p_3 & q_1 & T & F & F \\
+      p_3 & q_2 & T & F & T \\
+      p_3 & q_3 & T & F & F \\
+      p_4 & q_1 & T & F & T \\
+      p_4 & q_2 & T & F & F \\
+      p_4 & q_3 & T & F & T \\
+    \end{array}
+  \]  
+  Provide below some true quantified statements involving each of the predicates. For each statement, argue very briefly why it is true.
+  
+  \begin{solution}
+    Many statements can be made. Below are a few.
+    
+    \underline{Involving $A(x), B(x)$, and $C(x)$}
+    
+    \begin{tabular}{L@{ : }l}
+      \forall x\; A(x) & $A(x)$ is always True\\
+      \forall x\; \neg B(x) & $B(x)$ is always False\\
+      \forall x\; (A(x) \lor B(x)) & $A(x) \lor B(x)$ is always True\\
+      \forall x\; \neg(A(x) \land B(x)) & $A(x) \land B(x)$ is always False\\
+      \forall x\; \neg(A(x) \implies B(x)) & $A(x) \implies B(x)$ is always False\\
+      \forall x\; (B(x) \implies A(x)) & $B(x) \implies A(x)$ is always True\\
+      \forall x\; (A(x) \iff \neg B(x)) & $A(x)$ and $B(x)$ always contradict\\
+      \forall x\; (B(x) \implies C(x)) & $B(x) \implies C(x)$ is always True\\
+      \forall x\; (C(x) \implies A(x)) & $C(x) \implies A(x)$ is always True\\
+      \forall x\; (A(x) \lor C(x)) & $A(x) \lor C(x)$ is always True\\
+      \forall x\; \neg(B(x) \land C(x)) & $B(x) \land C(x)$ is always False\\
+    \end{tabular}
+
+    The existential counterparts of all the above statements also hold. In addition, the following existential statements also hold.
+
+    \begin{tabular}{L@{ : }l}
+      \exists x\; C(x)) & $C(x)$ is sometimes True\\
+      \exists x\; \neg C(x)) & $C(x)$ is sometimes False\\
+      \exists x\; (A(x) \iff C(x)) & $A(x)$ and $C(x)$ sometimes agree\\
+      \exists x\; \neg (A(x) \iff C(x)) & $A(x)$ and $C(x)$ sometimes contradict\\
+      \exists x\; (A(x) \iff B(x)) & $A(x)$ and $B(x)$ sometimes agree\\
+      \exists x\; \neg (A(x) \iff B(x)) & $A(x)$ and $B(x)$ sometimes contradict\\
+    \end{tabular}
+
+    $D(x), E(x)$, and $F(x)$ can be reasoned about similarly.
+
+    Following are some statements about $G(x,y), H(x,y)$, and $I(x,y)$.
+
+    \begin{tabular}{L@{ : }l}
+      \forall x\forall y\; G(x,y) & $G(x,y)$ is always True\\
+      \forall x\forall y\; \neg H(x,y) & $H(x,y)$ is always False\\
+      \forall x\forall y\; \neg( G(x,y)\iff  H(x,y)) & $G(x,y)$ and $H(x,y)$ always contradict\\
+      \forall x\forall y\; ( G(x,y)\lor  H(x,y)) & $G(x,y) \lor H(x,y)$ is always True\\
+      \forall x\forall y\; \neg ( G(x,y)\implies  H(x,y)) & $G(x,y) \implies H(x,y)$ is always False\\
+      \forall x\forall y\; ( H(x,y)\implies  G(x,y)) & $H(x,y) \implies G(x,y)$ is always True\\
+      \forall x\forall y\; ( H(x,y)\implies  I(x,y)) & $H(x,y) \implies I(x,y)$ is always True\\
+      \forall x\forall y\; ( I(x,y)\implies  G(x,y)) & $I(x,y) \implies G(x,y)$ is always True\\
+      \forall x\forall y\; \neg (H(x,y)\land I(x,y)) & $H(x,y)\land I(x,y)$ is always False\\
+    \end{tabular}
+
+    The existential counterparts of all the above statements also hold. In addition, the following existential statements also hold.
+
+    \begin{tabular}{L@{ : }l}
+      \exists x\exists y\; I(x,y) & $I(x,y)$ is sometimes True\\
+      \exists x\exists y\; \neg I(x,y) & $I(x,y)$ is sometimes False\\
+      \exists x\exists y\; (I(x,y) \iff H(x,y)) & $I(x,y)$ and $H(x,y)$ sometimes agree\\
+      \exists x\exists y\; \neg (I(x,y) \iff H(x,y)) & $I(x,y)$ and $H(x,y)$ sometimes contradict\\
+      \exists x\exists y\; (I(x,y) \iff G(x,y)) & $I(x,y)$ and $G(x,y)$ sometimes agree\\
+      \exists x\exists y\; \neg (I(x,y) \iff G(x,y)) & $I(x,y)$ and $G(x,y)$ sometimes contradict\\
+      \exists x\exists y\; (I(x,y) \land G(x,y)) & $I(x,y)\land G(x,y)$ is sometimes True\\
+      \exists x\exists y\; \neg (I(x,y) \land G(x,y)) & $I(x,y)\land G(x,y)$ is sometimes False\\
+      \exists x\exists y\; (I(x,y) \lor H(x,y)) & $I(x,y)\lor H(x,y)$ is sometimes True\\
+      \exists x\exists y\; \neg (I(x,y) \lor H(x,y)) & $I(x,y)\lor H(x,y)$ is sometimes False\\
+      \exists x\forall y\; I(x,y) & $I(x,y)$ is always True when $x=p_2$\\
+      \exists x\forall y\; \neg I(x,y) & $I(x,y)$ is always False when $x=p_1$\\
+    \end{tabular}
+  \end{solution}
+\end{questions}
+\end{document}

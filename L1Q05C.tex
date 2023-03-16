@@ -1,0 +1,61 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tabularx}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+
+\title{Quiz 5C: Proofs}
+\author{CS/MATH 113 Discrete Mathematics L1}
+\date{Habib University | Spring 2023}
+
+% solution
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\printanswers
+
+\newcolumntype{L}{>$l<$}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  Total Marks: \numpoints & Date: \today\\
+  Duration: 10 minutes & Time: 1715--1725h
+\end{tabularx}
+\hrule
+\bigskip
+
+\noindent \textbf{Student ID}: \hrulefill \\[5pt]
+\noindent \textbf{Student Name}: \hrulefill \\[5pt]
+
+% \section{Problems}
+
+\begin{questions}
+  \question [10] Given the following proof, argue whether it is correct or not.
+
+  \begin{claim}
+  If $n^2$ is even, then so is $n$.
+\end{claim}
+
+  \begin{proof}
+    Suppose that $n^2$ is even.\\
+    Then $n^2 = 2k$ for some integer $k$.\\
+    Let $n = 2m$ for some integer $m$.\\
+    This shows that n is even.
+  \end{proof}
+  
+  \begin{solution}
+    The proof is not correct.
+
+    The third line assumes $n=2m$. This does not follow from any of the lines above. As such, it is an assumption. If so, $n$ is no longer general.
+  \end{solution}
+\end{questions}
+\end{document}

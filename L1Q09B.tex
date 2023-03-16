@@ -1,0 +1,68 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tabularx}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+
+\newcolumntype{L}{>$l<$}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+
+
+\title{Quiz 9B: Sequences and Summation}
+\author{CS/MATH 113 Discrete Mathematics L1}
+\date{Habib University | Spring 2023}
+
+\runningheader{}{}{}
+\runningfooter{}{}{}
+
+% solution
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\printanswers
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  Total Marks: \numpoints & Date: \today\\
+  Duration: 10 minutes & Time: 1715--1725h
+\end{tabularx}
+\hrule
+\bigskip
+
+\noindent \textbf{Student ID}: \hrulefill \\[5pt]
+\noindent \textbf{Student Name}: \hrulefill \\[5pt]
+
+\section{Problems}
+
+\begin{questions}
+\question[10] Given
+  \[
+    f(n) = \sum_{i=1}^n k^2,
+  \]
+  show how you can compute $\sum_{i=10}^{100} k^2$.
+ 
+  \begin{solution}
+    \begin{align*}
+      \sum_{i=10}^{100} k^2 & = \sum_{i=1}^{100} k^2 - \sum_{i=1}^{9} k^2\\
+                            & = f(100) - f(9)
+    \end{align*}
+  \end{solution}
+
+\end{questions}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

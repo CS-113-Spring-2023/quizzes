@@ -1,0 +1,74 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tabularx}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+
+\newcolumntype{L}{>$l<$}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+
+\title{Quiz 7A: Functions}
+\author{CS/MATH 113 Discrete Mathematics L1}
+\date{Habib University | Spring 2023}
+
+\runningheader{}{}{}
+\runningfooter{}{}{}
+
+% solution
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\printanswers
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  Total Marks: \numpoints & Date: \today\\
+  Duration: 10 minutes & Time: 1715--1725h
+\end{tabularx}
+\hrule
+\bigskip
+
+\noindent \textbf{Student ID}: \hrulefill \\[5pt]
+\noindent \textbf{Student Name}: \hrulefill \\[5pt]
+
+% \section{Problems}
+
+\begin{questions}
+  \question [10]
+
+  We are given a function, $f:\Z\to \Z$, defined as $f(x) = x+1$. Prove that the co-domain and range of $f$ are equal. Recall that these are sets.
+
+  \begin{solution}
+    The co-domain is given as  \Z. Let the range be $R$. We show that $R=\Z$ by showing that each is a subset of the other.
+    \begin{proof}
+      \ \\
+      \underline{Case 1}: $R\subseteq\Z$\\[5pt]
+      Assume $n\in R$.\\
+      Then, $n$ is 1 more than some integer.\\
+      Then, $n$ is an integer, i.e. $n\in\Z$.
+
+      \underline{Case 2}: $\Z\subseteq R$\\[5pt]
+      Assume $n\in\Z$.\\
+      Then $n$ is the image of $n-1$ under $f$.\\
+      That is, $n\in R$.
+    \end{proof}
+  \end{solution}
+
+\end{questions}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

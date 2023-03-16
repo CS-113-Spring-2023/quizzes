@@ -1,0 +1,88 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tabularx}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+
+\newcolumntype{L}{>$l<$}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+
+
+\title{Quiz 8A: Functions}
+\author{CS/MATH 113 Discrete Mathematics L1}
+\date{Habib University | Spring 2023}
+
+\runningheader{}{}{}
+\runningfooter{}{}{}
+
+% solution
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\printanswers
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  Total Marks: \numpoints & Date: \today\\
+  Duration: 10 minutes & Time: 1715--1725h
+\end{tabularx}
+\hrule
+\bigskip
+
+\noindent \textbf{Student ID}: \hrulefill \\[5pt]
+\noindent \textbf{Student Name}: \hrulefill \\[5pt]
+
+\section{Problems}
+
+\begin{questions}
+\question[10] Given the following definitions, prove the claim below.
+
+  \begin{definition}[Injective function]
+    A function $f$ is said to be \textit{one-to-one}, or an \textit{injection}, if and only if $f (a) = f (b)$ implies that $a = b$ for all $a$ and $b$ in the domain of $f$. A function is said to be \textit{injective} if it is one-to-one.
+  \end{definition}
+
+  \begin{definition}[Surjective function]
+    A function $f$ from $A$ to $B$ is called \textit{onto}, or a \textit{surjection}, if and only if for every element $b \in B$ there is an element $a \in A$ with $f(a) = b$. A function $f$ is called \textit{surjective} if it is onto.
+  \end{definition}
+
+  \begin{definition}[Bijective function]
+    The function $f$ is a \textit{one-to-one correspondence}, or a \textit{bijection}, if it is both one-to-one and onto. We also say that such a function is \textit{bijective}.
+  \end{definition}
+
+  \begin{claim}
+    There are functions that are injective but not bijective.
+  \end{claim}
+
+  \begin{solution}
+    This is an existence proof. We prove the claim by providing a witness. That is, a function that is injective and not surjective.
+    \begin{proof}
+      Take $f:\Z\to\Z$ where $f(x)=2x$.
+
+      \underline{\textit{To show}}: $f$ is injective.\\
+      Assume integers $a$ and $b$ such that $f(a) = f(b)$.\\
+      Then, $2a=2b$. Therefore, $a=b$.
+
+      \underline{\textit{To show}}: $f$ is not surjective.\\
+      Consider $b=5$.\\
+      There is no $a\in\Z$ such that $f(a)=b$.
+    \end{proof}
+  \end{solution}
+
+\end{questions}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

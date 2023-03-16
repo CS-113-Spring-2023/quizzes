@@ -1,0 +1,62 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tabularx}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+
+\title{Quiz 5B: Proofs}
+\author{CS/MATH 113 Discrete Mathematics L1}
+\date{Habib University | Spring 2023}
+
+% solution
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\printanswers
+
+\newcolumntype{L}{>$l<$}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  Total Marks: \numpoints & Date: \today\\
+  Duration: 10 minutes & Time: 1715--1725h
+\end{tabularx}
+\hrule
+\bigskip
+
+\noindent \textbf{Student ID}: \hrulefill \\[5pt]
+\noindent \textbf{Student Name}: \hrulefill \\[5pt]
+
+% \section{Problems}
+
+\begin{questions}
+  \question [10] Given the following proof, argue whether it is correct or not.
+
+  \begin{claim}
+  If $n$ is a positive integer, then so is $n^2$.
+\end{claim}
+
+  \begin{proof}
+    Take $n=-10$.\\
+    Then $n^2=100$ which is positive.\\
+    Therefore, the claim is true.
+  \end{proof}
+  
+  \begin{solution}
+    The proof is not correct. It has two problems.
+
+    Firstly, the claim is about positive integers but the proof argues for $n=-10$ which is not a positive integer. Any result obtained for $n=-10$ has no bearing on the truth of the claim.
+
+    Secondly, the proof uses an example to establish the truth of the claim. An example is not a proof.
+  \end{solution}
+\end{questions}
+\end{document}

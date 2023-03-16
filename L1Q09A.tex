@@ -1,0 +1,73 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{cancel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tabularx}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+
+\newcolumntype{L}{>$l<$}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+
+
+\title{Quiz 9A: Sequences and Summation}
+\author{CS/MATH 113 Discrete Mathematics L1}
+\date{Habib University | Spring 2023}
+
+\runningheader{}{}{}
+\runningfooter{}{}{}
+
+% solution
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\printanswers
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  Total Marks: \numpoints & Date: \today\\
+  Duration: 10 minutes & Time: 1715--1725h
+\end{tabularx}
+\hrule
+\bigskip
+
+\noindent \textbf{Student ID}: \hrulefill \\[5pt]
+\noindent \textbf{Student Name}: \hrulefill \\[5pt]
+
+\section{Problems}
+
+\begin{questions}
+\question[10] Show that
+  \[
+    \sum_{i=1}^n (a_{i+1}-a_i) = a_{n+1}-a_1.
+  \]
+
+  \begin{solution}
+    \begin{proof}
+    Let $b_i=a_{i+1}-a_i$.
+    \begin{align*}
+      \sum_{i=1}^n (a_{i+1}-a_i) & = \sum_{i=1}^n b_i\\
+                                 & = b_n + b_{n-1} + b_{n-2} +  \ldots + b_3 + b_2 + b_1 \\
+                                 & = (a_{n+1} - \cancel{a_n}) + (\cancel{a_n} - \cancel{a_{n-1}}) + (\cancel{a_{n-1}} - \cancel{a_{n-2}}) + \ldots + (\cancel{a_4}-\cancel{a_3}) + (\cancel{a_3}-\cancel{a_2}) + (\cancel{a_2}-a_1) \\
+      & = a_{n+1}-a_1
+    \end{align*}
+  \end{proof}
+\end{solution}
+
+\end{questions}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
