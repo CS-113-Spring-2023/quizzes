@@ -1,0 +1,92 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{cancel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tabularx}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+
+\newcolumntype{L}{>$l<$}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+
+
+\title{Quiz 10B: Mathematical Induction}
+\author{CS/MATH 113 Discrete Mathematics L1}
+\date{Habib University | Spring 2023}
+
+\runningheader{}{}{}
+\runningfooter{}{}{}
+
+% solution
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\SetWatermarkLightness{.85}
+\printanswers
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  Total Marks: \numpoints & Date: \today\\
+  Duration: 10 minutes & Time: 1715--1725h
+\end{tabularx}
+\hrule
+\bigskip
+
+\noindent \textbf{Student ID}: \hrulefill \\[5pt]
+\noindent \textbf{Student Name}: \hrulefill \\[5pt]
+
+% \section{Problems}
+
+\begin{questions}
+  
+\question We are considering a proof by induction of the following claim.
+  
+  \centerline{$2^n < n!$ for every integer $n$ with $n\geq 4$.}
+
+  For this particular proof,
+  \begin{parts}
+  \part[2] Write the statement as a proposition, $P(n)$, and indicate its domain.
+    \begin{solution}
+    Let $\mathbb{Z}'=\mathbb{Z}^+-\{1,2,3\}$. Then the statement is,
+      \[
+        P(n): 2^n < n! \; \text{ where } n\in\mathbb{Z}' .
+      \]
+    \end{solution}
+    
+  \part[2] What would need to be shown in the basis step?
+    \begin{solution}
+      It would need to be shown that $P(4)$ is true, i.e., that $2^4<4!$.
+    \end{solution}
+    
+  \part[2] What does the inductive hypothesis claim?
+    \begin{solution}
+      It claims that $P(k)$ is true, i.e., $2^k < k! \; \text{ where } k\in\mathbb{Z}' $.
+    \end{solution}
+  \part[4] What does the inductive step need to show?
+    \begin{solution}
+      It needs to show that if $P(k)$ is true then $P(k+1)$ is also true, i.e.,
+      \[
+        (2^k < k!) \implies (2^{k+1} < (k+1)!) \; \text{ where } k\in\mathbb{Z}^*.
+      \]
+    \end{solution}
+  \end{parts}
+  Note that you are not being asked to execute the proof.
+
+  
+\end{questions}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

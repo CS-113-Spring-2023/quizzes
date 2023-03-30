@@ -1,0 +1,93 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{cancel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tabularx}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+
+\newcolumntype{L}{>$l<$}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+
+
+\title{Quiz 10A: Mathematical Induction}
+\author{CS/MATH 113 Discrete Mathematics L1}
+\date{Habib University | Spring 2023}
+
+\runningheader{}{}{}
+\runningfooter{}{}{}
+
+% solution
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\SetWatermarkLightness{.85}
+\printanswers
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  Total Marks: \numpoints & Date: \today\\
+  Duration: 10 minutes & Time: 1715--1725h
+\end{tabularx}
+\hrule
+\bigskip
+
+\noindent \textbf{Student ID}: \hrulefill \\[5pt]
+\noindent \textbf{Student Name}: \hrulefill \\[5pt]
+
+% \section{Problems}
+
+\begin{questions}
+  
+\question We are considering a proof by induction of the following claim.
+  
+  \centerline{$7^{n+2} + 8^{2n+1}$ is divisible by $57$ for every non-negative integer $n$.}
+
+  For this particular proof,
+  \begin{parts}
+  \part[2] Write the statement as a proposition, $P(n)$, and indicate its domain.
+    \begin{solution}
+      \[
+        P(n): \exists m\in\mathbb{Z} \ni (7^{n+2} + 8^{2n+1} = 57m) \; \text{ where } n\in\mathbb{Z}^* .
+      \]
+    \end{solution}
+    
+  \part[2] What would need to be shown in the basis step?
+    \begin{solution}
+      It would need to be shown that $P(0)$ is true, i.e. that $7^2+8^1$ is divisible by 57.
+    \end{solution}
+    
+  \part[2] What does the inductive hypothesis claim?
+    \begin{solution}
+      It claims that $P(k)$ is true, i.e., $\exists m\in\mathbb{Z} \ni (7^{k+2} + 8^{2k+1} = 57m) \; \text{ where } k\in\mathbb{Z}^* $.
+    \end{solution}
+  \part[4] What does the inductive step need to show?
+    \begin{solution}
+      It needs to show that if $P(k)$ is true then $P(k+1)$ is also true, i.e.,
+      \[
+        \exists m\in\mathbb{Z} \ni (7^{k+2} + 8^{2k+1} = 57m) \implies
+        \exists m\in\mathbb{Z} \ni (7^{k+3} + 8^{2k+3} = 57m)
+         \; \text{ where } k\in\mathbb{Z}^*.
+      \]
+    \end{solution}
+  \end{parts}
+  Note that you are not being asked to execute the proof.
+
+  
+\end{questions}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
