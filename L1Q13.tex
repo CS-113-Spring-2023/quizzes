@@ -1,0 +1,88 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{graphs,graphs.standard}
+\usepackage{xcolor}
+
+% solution
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\SetWatermarkLightness{.85}
+\printanswers
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+
+\title{Quiz 13: Graphs}
+\author{CS/MATH 113 Discrete Mathematics L1}
+\date{Habib University | Spring 2023}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  Total Marks: \numpoints & Date: \today\\
+  Duration: 10 minutes & Time: 1530--1540h
+\end{tabularx}
+\hrule
+\bigskip
+
+\noindent \textbf{Student ID}: \hrulefill \\[5pt]
+\noindent \textbf{Student Name}: \hrulefill \\[5pt]
+
+\section{Problems}
+
+\begin{questions}
+\question[10] Given the following definitions and theorems, prove the claim at the end.
+
+\begin{definition}[Graph]
+  A graph $G = (V, E)$ consists of $V$, a nonempty set of vertices (or nodes) and $E$, a set of edges. Each edge has either one or two vertices associated with it, called its endpoints. An edge is said to connect its endpoints.
+\end{definition}
+
+\begin{definition}[Adjacency/Incidence]
+  Two vertices $u$ and $v$ in a graph $G$ are called adjacent (or neighbors) in $G$ if $u$ and $v$ are endpoints of an edge $e$ of G. Such an edge $e$ is called incident with the vertices $u$ and $v$, and $e$ is said to connect $u$ and $v$.
+\end{definition}
+
+\begin{definition}[Degree]
+The degree of a vertex in a graph is the number of edges incident with it, except that a loop at a vertex contributes twice to the degree of that vertex. The degree of the vertex $v$ is denoted by $deg(v)$.
+\end{definition}
+
+\begin{theorem}[The Handshaking Theorem]
+  Let $G = (V, E)$ be a graph with $m$ edges. Then
+  \[
+    2m = \sum_{v\in V}deg(v).
+  \]
+  (Note that this applies even if multiple edges and loops are present.)
+\end{theorem}
+
+\begin{claim}
+  Any graph has an even number of vertices of odd degree.
+\end{claim}
+  
+\begin{solution}
+  We prove the claim directly.
+  \begin{proof}
+    Consider an arbitrary graph with $n$ vertices of odd degree and $m$ vertices of even degree.\\
+    Let the odd degrees be: $2k_1+1, 2k_2+1, 2k_3+1, \ldots, 2k_n+1$. Their sum is: $n + 2\sum_{i=1}^nk_i$.\\
+    Let the even degrees be: $2l_1, 2l_2, 2l_3, 2l_4, \ldots, 2l_m$. Their sum is: $2\sum_{i=1}^ml_i$.\\
+    So, the total degree is: $n + 2\sum_{i=1}^nk_i + 2\sum_{i=1}^ml_i = n + 2K$, where $K$ is some integer.\\
+    The parity of the total degree is the parity of $n + 2K$ which is the same as the parity of $n$.\\
+    We know from the handshaking theorem that the total degree is even.\\
+    $\therefore n$ is even.
+  \end{proof}
+\end{solution}
+\end{questions}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

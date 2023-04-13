@@ -1,0 +1,97 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{graphs,graphs.standard}
+\usepackage{xcolor}
+
+% solution
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\SetWatermarkLightness{.85}
+\printanswers
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+
+\title{Quiz 14A: Graphs}
+\author{CS/MATH 113 Discrete Mathematics L1}
+\date{Habib University | Spring 2023}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  Total Marks: \numpoints & Date: \today\\
+  Duration: 10 minutes & Time: 1530--1540h
+\end{tabularx}
+\hrule
+\bigskip
+
+\noindent \textbf{Student ID}: \hrulefill \\[5pt]
+\noindent \textbf{Student Name}: \hrulefill \\[5pt]
+
+\section{Problems}
+
+\begin{questions}
+\question We are given the following definitions and theorems.
+
+\begin{definition}[Bipartite Graph]
+A simple graph $G$ is called bipartite if its vertex set $V$ can be partitioned into two disjoint sets $V_1$ and $V_2$ such that every edge in the graph connects a vertex in $V_1$ and a vertex in $V_2$ (so that no edge in $G$ connects either two vertices in $V_1$ or two vertices in $V_2$). When this condition holds, we call the pair $(V_1, V_2)$ a bipartition of the vertex set $V$ of $G$.
+\end{definition}
+
+\begin{definition}[Complete Bipartite Graph]
+A complete bipartite graph $K_{m,n}$ is a graph that has its vertex set partitioned into two subsets of $m$ and $n$ vertices, respectively with an edge between two vertices if and only if one vertex is in the first subset and the other vertex is in the second subset.
+\end{definition}
+
+\begin{definition}[Matching in a Simple Graph]
+ A matching $M$ in a simple graph $G = (V, E)$ is a subset of the set $E$ of edges of the graph such that no two edges are incident with the same vertex.  A vertex that is the endpoint of an edge of a matching $M$ is said to be matched in $M$; otherwise it is said to be unmatched.
+\end{definition}
+
+\begin{definition}[Complete Matching in a Bipartite Graph]
+We say that a matching $M$ in a bipartite graph $G = (V, E)$ with bipartition $(V_1,V_2)$ is a complete matching from $V_1$ to $V_2$ if every vertex in $V_1$ is the endpoint of an edge in the matching, or equivalently, if $|M| = |V_1|$.
+\end{definition}
+
+\begin{theorem}[Hall’s Marriage Theorem]
+  The bipartite graph $G = (V, E)$ with bipartition $(V_1, V_2)$ has a complete matching from $V_1$ to $V_2$ if and only if $|N(A)| \geq |A|$ for all subsets $A$ of $V_1$.
+\end{theorem}
+
+Given $K_{2,3}$, argue whether a complete matching exists
+\begin{parts}
+\part[5] from $V_1$ to $V_2$,
+  \begin{solution}
+    We use Hall's theorem to prove that a complete matching \textit{exists} in this case. That is, we argue that for every subset of $V_1$, the condition in Hall's theorem holds.
+    \begin{proof}
+      \begin{itemize}
+      \item We know that $|V_1| =2, |V_2| =3$, and $\forall v\in V_1 (N(v) = V_2)$.
+      \item Then, $\forall A\subseteq V_1 (N(A)=V_2)$.
+      \item $A$ is largest when $A=V_1$. Then $|A|=2$ and $N(A)=3$.
+      \end{itemize}
+    \end{proof}
+  \end{solution}
+\part[5] from $V_2$ to $V_1$.
+  \begin{solution}
+    We use Hall's theorem to prove that a complete matching \textit{does not exist} in this case. That is, we show a subset, $A$, of $V_2$ for which the condition in Hall's theorem does not hold.
+    \begin{proof}
+      \begin{itemize}
+      \item We know that $|V_2| =3, |V_1| =2$, and $\forall v\in V_2 (N(v) = V_1)$.
+      \item For the purpose of applying Hall's theorem, consider $A=V_2$.
+      \item $N(A)=V_1$. So, $|A|=3$ and $|N(A)|=2$.
+      \end{itemize}
+    \end{proof}
+  \end{solution}\end{parts}
+
+\end{questions}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

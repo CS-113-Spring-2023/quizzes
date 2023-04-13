@@ -23,12 +23,12 @@
 \runningheader{}{}{}
 \runningfooter{}{}{}
 
-% % solution
-% \usepackage{draftwatermark}
-% \SetWatermarkText{Sample Solution}
-% \SetWatermarkScale{3}
-% \SetWatermarkLightness{.85}
-% \printanswers
+% solution
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\SetWatermarkLightness{.85}
+\printanswers
 
 \begin{document}
 \maketitle
@@ -54,7 +54,28 @@
     S=\{(a,b)\mid a,b\in\mathbb{Z}^+, a+b \text{ is even }\}
   \]
 
-  
+  \begin{solution}
+    We define $A$ as follows:\\
+    \begin{itemize}
+    \item $(1,1) \in A$
+    \item For $(a,b)\in A$, the following are also in $A: (a+1,b+1), (a+2, b), (a,b+2)$
+    \end{itemize}
+
+    We need to prove that $A$ satisfies the given condition, i.e. $A\subseteq S$.
+    \begin{proof}
+      \ \newline
+      \begin{itemize}
+      \item Base case: $(1,1)\in S$: $1\in\mathbb{Z}^+$ and $1+1=2$ which is even.
+      \item Inductive step: Assume that $(a,b)\in S$, i.e. $a,b\in\mathbb{Z}^+$ and $a+b$ is even.\\
+        We need to show that $(a+1,b+1), (a+2, b), (a,b+2)\in S$.
+        \begin{itemize}
+        \item $(a+1,b+1)\in S$: We have $a+1,b+1\in\mathbb{Z}^+$ and $a+1+b+1=a+b+2$ which is even.
+        \item $(a+2,b)\in S$: We have $a+2,b\in\mathbb{Z}^+$ and $a+2+b=a+b+2$ which is even.
+        \item $(a,b+2)\in S$: We have $a,b+2\in\mathbb{Z}^+$ and $a+b+2=a+b+2$ which is even.
+        \end{itemize}
+      \end{itemize}
+    \end{proof}
+  \end{solution}
 \end{questions}
 \end{document}
 
